@@ -12,16 +12,9 @@ function App() {
     description: "",
     tech: "",
     url: "",
-  })
+  });
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    setFormData({...formData, [name]: value })
-  }
-
-
-  const projects = [
+  const [projects, setProjects] = useState([
     {
       id: 1,
       name: "E-commerce Platform",
@@ -39,13 +32,43 @@ function App() {
       tech: "HTML, CSS, JavaScript",
       url: "https://example.com/project2",
     },
-  ];
+  ]);
+
+  // handle form input changes
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setFormData({ ...formData, [name]: value });
+  }
+  //  handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newProject = {
+      id: Date.now(),
+      ...formData,
+    };
+    setProjects([...projects, newProject]);
+    alert("Project added successfully!");
+
+    // reset form after submission
+    setFormData({
+      name: "",
+      category: "",
+      description: "",
+      url: "",
+      tech: "",
+    });
+  };
 
   return (
     <>
       <Header />
       <main className="pt-20 px-4">
-        <ProjectForm formData={formData} handleChange={handleChange} />
+        <ProjectForm
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
         <SearchBar />
         <ProjectList projects={projects} />
       </main>

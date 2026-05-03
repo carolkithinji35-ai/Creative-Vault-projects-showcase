@@ -1,14 +1,14 @@
-export default function ProjectForm({ formData, handleChange }) {
+export default function ProjectForm({ formData, handleChange, handleSubmit }) {
   return (
     <div className="bg-white border border-rose-200 rounded-xl shadow-sm max-w-3xl mx-auto py-3 px-4">
       {/* add project button */}
 
       <button className="mb-6 flex items-center gap-2 text-rose-600 font-semibold hover:text-rose-700 transition">
-        <span className="text-xl">+</span> Add Project
+        New Project
       </button>
 
       {/* form */}
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleSubmit}>
         {/* project name */}
         <label htmlFor="project-name">
           Project Name
@@ -80,7 +80,7 @@ export default function ProjectForm({ formData, handleChange }) {
           type="submit"
           className="w-full bg-rose-500 text-white py-3 rounded-lg font-semibold hover:bg-rose-600 transition"
         >
-          Save Project
+          Add Project
         </button>
       </form>
     </div>
