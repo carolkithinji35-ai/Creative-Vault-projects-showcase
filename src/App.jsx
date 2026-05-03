@@ -60,6 +60,12 @@ function App() {
     });
   };
 
+  // delete project button
+  const handleDelete = (id) => {
+    const updatedProjects = projects.filter((project) => project.id !== id);
+    setProjects(updatedProjects);
+  };
+
   return (
     <>
       <Header />
@@ -70,7 +76,7 @@ function App() {
           handleSubmit={handleSubmit}
         />
         <SearchBar />
-        <ProjectList projects={projects} />
+        <ProjectList projects={projects} handleDelete={handleDelete} />
       </main>
     </>
   );

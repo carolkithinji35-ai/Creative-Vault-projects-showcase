@@ -1,6 +1,8 @@
-export default function ProjectCard({project}) {
+import { FaTrash } from "react-icons/fa";
+
+export default function ProjectCard({ project, handleDelete }) {
   return (
-    <div className=" w-full sm:w-72 bg-white border border-rose-200 rounded-xl p-4 shadow-sm flex flex-col gap-3">
+    <div className="relative w-full sm:w-72 bg-white border border-rose-200 rounded-xl p-4 shadow-sm flex flex-col gap-3">
       {/* Top row */}
       <div className="flex justify-between items-center">
         {/* Category */}
@@ -27,8 +29,20 @@ export default function ProjectCard({project}) {
 
       {/* Tech Stack */}
       <p className="text-xs text-gray-500">
-        <span className=" bg-rose-700 text-white py-1 px-1.5 rounded-full">Tech Stack:</span> {project.tech}
+        <span className=" bg-rose-700 text-white py-1 px-1.5 rounded-full">
+          Tech Stack:
+        </span>{" "}
+        {project.tech}
       </p>
+
+      <button
+        onClick={() => {
+          handleDelete(project.id);
+        }}
+        className="absolute bottom-3 right-3 text-red-500 hover:text-red-700 transition text-xs"
+      >
+        <FaTrash />
+      </button>
     </div>
   );
 }
