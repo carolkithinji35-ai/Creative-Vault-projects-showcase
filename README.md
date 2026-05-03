@@ -24,7 +24,7 @@ React, JavaScript (ES6+), Tailwind CSS, localStorage API
 
 ## Project Structure
 
-src/ <br/>
+src/ 
 components/ 
 Header.jsx 
 ProjectForm.jsx 
