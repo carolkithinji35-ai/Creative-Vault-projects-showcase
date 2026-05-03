@@ -39,7 +39,7 @@ export default function ProjectCard({ project, handleDelete }) {
         onClick={() => {
           handleDelete(project.id);
         }}
-        className="absolute bottom-3 right-3 text-red-500 hover:text-red-700 transition text-xs"
+        className="absolute bottom-3 right-3 text-gray-300 hover:text-red-700 transition text-xs"
       >
         <FaTrash />
       </button>
