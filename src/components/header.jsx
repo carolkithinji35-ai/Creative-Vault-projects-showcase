@@ -14,7 +14,7 @@ const Header = () => {
             Home
           </a>
           <a
-            href="#"
+            href="#projects"
             className="text-rose-500 hover:text-rose-700 transition duration-300"
           >
             Projects
