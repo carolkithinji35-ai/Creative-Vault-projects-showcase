@@ -3,11 +3,24 @@ import Header from "./components/header.jsx";
 import ProjectForm from "./components/projectform.jsx";
 import SearchBar from "./components/searchBar.jsx";
 import ProjectList from "./components/projectlist.jsx";
+import { useState } from "react";
 
 function App() {
+  const [formData, setFormData] = useState({
+    name: "",
+    category: "",
+    description: "",
+    tech: "",
+    url: "",
+  })
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setFormData({...formData, [name]: value })
+  }
 
 
-  
   const projects = [
     {
       id: 1,
@@ -32,7 +45,7 @@ function App() {
     <>
       <Header />
       <main className="pt-20 px-4">
-        <ProjectForm />
+        <ProjectForm formData={formData} handleChange={handleChange} />
         <SearchBar />
         <ProjectList projects={projects} />
       </main>
